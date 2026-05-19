@@ -250,7 +250,8 @@ h2 {
 }
 
 .control span,
-.field-row label {
+.field-row label,
+.field-row > span {
   color: var(--muted);
   font-size: 0.86rem;
   font-weight: 800;
@@ -381,8 +382,17 @@ input[type="text"] {
   align-items: start;
 }
 
+.badge-grid {
+  display: grid;
+  grid-template-columns: minmax(360px, 0.88fr) minmax(420px, 1.12fr);
+  gap: 18px;
+  align-items: start;
+}
+
 .birthday-controls,
-.birthday-preview-panel {
+.birthday-preview-panel,
+.badge-controls,
+.badge-preview-panel {
   padding: 18px;
 }
 
@@ -409,6 +419,154 @@ input[type="text"] {
   touch-action: none;
 }
 
+.badge-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.badge-employee-list {
+  display: grid;
+  gap: 14px;
+}
+
+.badge-employee-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfe;
+}
+
+.badge-card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.badge-card-heading strong {
+  font-size: 1rem;
+}
+
+.badge-remove-button {
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--muted);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.badge-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.badge-fields .is-wide {
+  grid-column: 1 / -1;
+}
+
+.badge-photo-adjustments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 10px;
+  align-items: end;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+.badge-photo-adjustments .control {
+  gap: 6px;
+}
+
+.badge-photo-adjustments input[type="range"] {
+  min-width: 0;
+}
+
+.badge-photo-center {
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.badge-upload {
+  min-height: 78px;
+  margin: 0;
+}
+
+.badge-upload .upload-label {
+  min-height: 40px;
+  padding: 0 14px;
+}
+
+.badge-mini-previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.badge-mini {
+  display: grid;
+  gap: 6px;
+}
+
+.badge-mini span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.badge-mini canvas {
+  width: 100%;
+  aspect-ratio: 54.83 / 85.71;
+  border: 1px solid #cad1dc;
+  border-radius: 2px;
+  background: white;
+}
+
+.badge-summary {
+  margin-top: 0;
+}
+
+.badge-sheet-wrap {
+  min-height: 650px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #edf1f5;
+  overflow: auto;
+}
+
+.badge-sheet {
+  position: relative;
+  width: min(100%, 500px);
+  aspect-ratio: 210 / 297;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 14px 34px rgba(19, 28, 43, 0.16);
+}
+
+.badge-slot {
+  position: absolute;
+  overflow: hidden;
+  border: 1px solid #aab4c4;
+  border-radius: 2px;
+  background: white;
+}
+
+.badge-slot canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 940px) {
   .app-shell {
     padding: 18px;
@@ -429,13 +587,15 @@ input[type="text"] {
   }
 
   .editor-grid,
-  .birthday-grid {
+  .birthday-grid,
+  .badge-grid {
     grid-template-columns: 1fr;
   }
 
   .crop-stage,
   .sheet-wrap,
-  .birthday-preview-wrap {
+  .birthday-preview-wrap,
+  .badge-sheet-wrap {
     min-height: auto;
   }
 
@@ -458,7 +618,10 @@ input[type="text"] {
 
 @media (max-width: 560px) {
   .controls,
-  .summary {
+  .summary,
+  .badge-fields,
+  .badge-mini-previews,
+  .badge-photo-adjustments {
     grid-template-columns: 1fr;
   }
 

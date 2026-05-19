@@ -19,6 +19,7 @@
         <nav class="tool-tabs" aria-label="Ferramentas">
           <button class="tab-button is-active" type="button" data-tool="document">Foto 3x4</button>
           <button class="tab-button" type="button" data-tool="birthday">Aniversariante</button>
+          <button class="tab-button" type="button" data-tool="badge">Crachás</button>
         </nav>
 
         <div class="tool-section is-active" id="documentTool">
@@ -126,6 +127,50 @@
             <section class="panel birthday-preview-panel" aria-label="Prévia da arte">
               <div class="birthday-preview-wrap">
                 <canvas id="birthdayCanvas" width="1080" height="1920"></canvas>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="tool-section" id="badgeTool">
+          <div class="section-heading">
+            <div>
+              <h2>Crachás de funcionários</h2>
+              <p>Gere frente e verso em PDF A4 com medida final exata.</p>
+            </div>
+            <button class="primary-action" id="badgeDownloadButton" type="button" disabled>
+              Baixar PDF
+            </button>
+          </div>
+
+          <div class="badge-grid">
+            <section class="panel badge-controls" aria-label="Dados dos crachás">
+              <div class="badge-actions">
+                <button class="secondary-action" id="addBadgeEmployeeButton" type="button">
+                  Adicionar funcionário
+                </button>
+              </div>
+              <div class="badge-employee-list" id="badgeEmployeeList"></div>
+            </section>
+
+            <section class="panel badge-preview-panel" aria-label="Prévia da folha A4">
+              <div class="summary badge-summary">
+                <div>
+                  <span>Lado do crachá</span>
+                  <strong>54,83 x 85,71 mm</strong>
+                </div>
+                <div>
+                  <span>Página</span>
+                  <strong>A4</strong>
+                </div>
+                <div>
+                  <span>Por folha</span>
+                  <strong>2 funcionários</strong>
+                </div>
+              </div>
+
+              <div class="badge-sheet-wrap">
+                <div class="badge-sheet" id="badgeSheetPreview"></div>
               </div>
             </section>
           </div>
