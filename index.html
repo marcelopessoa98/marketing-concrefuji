@@ -3,23 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fotos 3x4 para PDF</title>
+    <title>Artes Concrefuji</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app-shell">
-      <section class="workspace" aria-label="Editor de foto 3x4">
+      <section class="workspace" aria-label="Ferramentas de arte">
         <header class="topbar">
           <div>
             <p class="eyebrow">Concrefuji</p>
-            <h1>Fotos 3x4 para impressão</h1>
+            <h1>Artes rápidas da empresa</h1>
           </div>
-          <button class="primary-action" id="downloadButton" type="button" disabled>
-            Baixar PDF
-          </button>
         </header>
 
-        <div class="editor-grid">
+        <nav class="tool-tabs" aria-label="Ferramentas">
+          <button class="tab-button is-active" type="button" data-tool="document">Foto 3x4</button>
+          <button class="tab-button" type="button" data-tool="birthday">Aniversariante</button>
+        </nav>
+
+        <div class="tool-section is-active" id="documentTool">
+          <div class="section-heading">
+            <div>
+              <h2>Fotos 3x4 para impressão</h2>
+              <p>Gere uma página A4 com a quantidade escolhida.</p>
+            </div>
+            <button class="primary-action" id="downloadButton" type="button" disabled>
+              Baixar PDF
+            </button>
+          </div>
+
+          <div class="editor-grid">
           <section class="panel editor-panel" aria-label="Recorte da foto">
             <div class="upload-zone" id="dropZone">
               <input id="photoInput" type="file" accept="image/*" />
@@ -70,6 +83,52 @@
               <div class="sheet" id="sheetPreview"></div>
             </div>
           </section>
+          </div>
+        </div>
+
+        <div class="tool-section" id="birthdayTool">
+          <div class="section-heading">
+            <div>
+              <h2>Post de aniversariante</h2>
+              <p>Digite o nome, envie a foto e baixe a arte em PNG.</p>
+            </div>
+            <button class="primary-action" id="birthdayDownloadButton" type="button" disabled>
+              Baixar PNG
+            </button>
+          </div>
+
+          <div class="birthday-grid">
+            <section class="panel birthday-controls" aria-label="Dados do aniversariante">
+              <div class="field-row">
+                <label for="birthdayNameInput">Nome do aniversariante</label>
+                <input id="birthdayNameInput" type="text" value="Tatiane Xavier" autocomplete="off" />
+              </div>
+
+              <div class="upload-zone birthday-upload" id="birthdayDropZone">
+                <input id="birthdayPhotoInput" type="file" accept="image/*" />
+                <label for="birthdayPhotoInput" class="upload-label">
+                  <span class="upload-icon" aria-hidden="true">+</span>
+                  <span>Selecionar foto</span>
+                </label>
+              </div>
+
+              <div class="controls">
+                <label class="control">
+                  <span>Zoom da foto</span>
+                  <input id="birthdayZoomRange" type="range" min="1" max="3" step="0.01" value="1" disabled />
+                </label>
+                <button class="secondary-action" id="birthdayCenterButton" type="button" disabled>
+                  Centralizar
+                </button>
+              </div>
+            </section>
+
+            <section class="panel birthday-preview-panel" aria-label="Prévia da arte">
+              <div class="birthday-preview-wrap">
+                <canvas id="birthdayCanvas" width="1080" height="1920"></canvas>
+              </div>
+            </section>
+          </div>
         </div>
       </section>
     </main>
