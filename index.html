@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fotos 3x4 para PDF</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-label="Editor de foto 3x4">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Concrefuji</p>
+            <h1>Fotos 3x4 para impressão</h1>
+          </div>
+          <button class="primary-action" id="downloadButton" type="button" disabled>
+            Baixar PDF
+          </button>
+        </header>
+
+        <div class="editor-grid">
+          <section class="panel editor-panel" aria-label="Recorte da foto">
+            <div class="upload-zone" id="dropZone">
+              <input id="photoInput" type="file" accept="image/*" />
+              <label for="photoInput" class="upload-label">
+                <span class="upload-icon" aria-hidden="true">+</span>
+                <span>Selecionar foto</span>
+              </label>
+            </div>
+
+            <div class="crop-stage" id="cropStage">
+              <canvas id="cropCanvas" width="900" height="1200"></canvas>
+              <div class="crop-frame" aria-hidden="true"></div>
+            </div>
+
+            <div class="controls">
+              <label class="control">
+                <span>Zoom</span>
+                <input id="zoomRange" type="range" min="1" max="3" step="0.01" value="1" disabled />
+              </label>
+              <button class="secondary-action" id="centerButton" type="button" disabled>
+                Centralizar
+              </button>
+            </div>
+          </section>
+
+          <section class="panel settings-panel" aria-label="Configuração do PDF">
+            <div class="field-row">
+              <label for="quantityInput">Quantidade no PDF</label>
+              <input id="quantityInput" type="number" min="1" max="36" value="12" />
+            </div>
+
+            <div class="summary">
+              <div>
+                <span>Formato</span>
+                <strong>3 x 4 cm</strong>
+              </div>
+              <div>
+                <span>Página</span>
+                <strong>A4</strong>
+              </div>
+              <div>
+                <span>Capacidade</span>
+                <strong>36 fotos</strong>
+              </div>
+            </div>
+
+            <div class="sheet-wrap" aria-label="Prévia da folha A4">
+              <div class="sheet" id="sheetPreview"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
